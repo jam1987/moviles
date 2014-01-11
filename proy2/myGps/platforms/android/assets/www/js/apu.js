@@ -18,10 +18,10 @@ var apu = (function() {
            + '</div>'
            + '<div class="apu-cuerpo">'
                + '<div class="apu-cuerpo-nav"></div>'
-               + '<div class="apu-cuerpo-contenido"></div>'
+               + '<div class="apu-cuerpo-contenido"><p id="geolocation">Finding geolocation...</p></div>'
            + '</div>'
            + '<div class="apu-pie"></div>'
-           + '<div class="apu-chat"></div>'
+           + '<div class="apu-chat"> chat foo </div>'
            + '<div class="apu-modal"></div>'
           
             );
