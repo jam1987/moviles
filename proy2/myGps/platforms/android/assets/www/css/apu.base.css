@@ -1,0 +1,26 @@
+       .apu-encab, .apu-encab-logo, .apu-encab-login,
+       .apu-encab-busqueda, .apu-cuerpo, .apu-cuerpo-nav,
+       .apu-cuerpo-contenido, .apu-pie, .apu-chat,
+       .apu-modal { position : absolute; }
+       .apu-encab { top : 0; left : 0; right : 0; height : 40px; }
+       .apu-encab-logo { top : 4px; left : 4px; height : 32px;
+                         width : 128px; background : orange; }
+       .apu-encab-login { top : 4px; right : 0; width : 64px;
+                          height : 32px; background : green; }
+       .apu-encab-busqueda { top : 4px; right : 64px; width : 248px;
+                             height : 32px; background : blue; }
+       .apu-cuerpo { top : 40px; left : 0; bottom : 40px;
+                     right : 0; }
+       .apu-cuerpo-contenido,
+       .apu-cuerpo-nav { top : 0; bottom : 0; }
+       .apu-cuerpo-nav { width : 250px; background : #eee; }
+       .apu-x-cerrado .apu-cuerpo-nav { width : 0; }
+       .apu-cuerpo-contenido { left : 250px; right : 0;
+                               background : #ddd; }
+       .apu-x-cerrado .apu-cuerpo-contenido { left : 0; }
+       .apu-pie { bottom : 0; left : 0; right : 0; height : 40px; }
+       .apu-chat { bottom : 0; right : 0; width : 300px;
+                   height : 15px; background : red; z-index : 1; }
+       .apu-modal { margin-top : -200px; margin-left : -200px;
+                    top : 50%; left : 50%; width : 400px; height : 400px; 
+                    background : #fff; border-radius : 3px; z-index : 2; }

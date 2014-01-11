@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+    <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    </script>
+        <title>APU inicial</title>
+        <!-- estilos -->
+        <link rel="stylesheet" 
+       	href="css/apu.css" type="text/css"/>
+        <link rel="stylesheet" 
+		href="css/apu.base.css" type="text/css"/>
+        <!-- librerías javascript -->
+        
+        <script src="js/jq/jquery-1.9.1.min.js"
+        ></script>
+        <script src="js/jq/jquery.uriAnchor.js"></script>
+        <!-- codigo proopio -->
+        <script src="js/apu.js"></script>
+        <script src="js/apu.base.js"></script>
+        
+                </script>
+           <script type="text/javascript" >
+    //Clausura
+    var deslizarChat = (function() {
+        var alto_extendido= 434,
+            ayuda_extendido= 'Clic para reducir',
+            alto_retraido= 16,
+            ayuda_retraido= 'Clic para agrandar',
+            $zonaChat, intercambiar, iniciar;
+        //Método privado
+        
+        obtenerMensajes = function() {
+        	$.getJSON('http://159.90.8.115:8084/chatMov/',function(data) {
+        		$('apu-chat').html('Si');
+        	});
+        }
+        intercambiar = function() {
+            var alto_chat = $zonaChat.height();
+            if (alto_chat <= alto_retraido) {
+                $zonaChat.animate({height: alto_extendido})
+                        .attr('title', ayuda_extendido);
+                        $.getJSON('http://159.90.8.115:8084/chatMov/',function(data) {
+        		document.write("Hizo conexion con el servidor");
+        	});
+            } else {
+                $zonaChat.animate({height: alto_retraido})
+                        .attr('title', ayuda_retraido);
+            }
+            $.uriAnchor.setAnchor({ chat : estado() });
+            return false;
+        }
+        isAbierto = function() {
+        	     var alto_chat = $zonaChat.height();
+        	     if (alto_chat <= alto_retraido) {
+                   return true;
+            } else {
+               return false;
+            }
+        }
+        estado = function() {
+            if (isAbierto()) {
+            	return "abierto";
+            } else {
+            	return "cerrado";
+            }
+        }
+        isCerrado = function() {
+        	     var alto_chat = $zonaChat.height();
+        	     if (alto_chat <= alto_retraido) {
+                   return false;
+            } else {
+               return true;
+            }
+        }
+        //Valor funcional
+        iniciar = function(contenedor) {
+            
+            $zonaChat = contenedor.find('.apu-chat');
+            $zonaChat.attr('title', ayuda_retraido)
+                    .click(intercambiar);
+            return true;
+        };
+        return {iniciar:iniciar, isAbierto:isAbierto, estado:estado, intercambiar:intercambiar};
+    }());
+  //  jQuery(document).ready(
+     //       function() {
+    //            deslizarChat(jQuery('#apu'));
+  //          }
+//    );
+</script>
+<script>
+            $(function() {
+                apu.initModule($('#apu'));
+                if (apu.estado._s_chat == "abierto") {
+                    deslizarChat.intercambiar();
+                }
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div id="apu"><p id="geolocation">Finding geolocation...</p></div>
+    </body>
+</html>

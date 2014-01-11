@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;MyGps&apos;" deleteContents="false" description="Delete resource &apos;MyGps&apos;" element1="/MyGps" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1389412188018"/>&#x0A;<refactoring comment="Delete resource &apos;MyGps-CordovaLib&apos;" deleteContents="false" description="Delete resource &apos;MyGps-CordovaLib&apos;" element1="/MyGps-CordovaLib" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1389412194476"/>
+</session>
