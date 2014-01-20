@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FirstApp</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="hello_world">Lo nano te da una mano!</string>
+    <string name="buttonone">Imagen 1</string>
+    <string name="buttontwo">Imagen 2</string>
+    <string name="buttonthree">Imagen 3</string>
+    <string name="buttonfour">Imagen 4</string>
+    <string name="buttonfive">Imagen 5</string>
+
+</resources>
