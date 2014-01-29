@@ -2,7 +2,7 @@
        .apu-encab-busqueda, .apu-cuerpo, .apu-cuerpo-nav,
        .apu-cuerpo-contenido, .apu-pie, .apu-chat,
        .apu-modal { position : absolute; }
-       .apu-encab { top : 0; left : 0; right : 0; height : 40px; }
+       .apu-encab { top : 0; left : 0; right : 0; height : 40px; background:url(tail-top.jpg) repeat-x }
        .apu-encab-logo { top : 4px; left : 4px; height : 32px;
                          width : 128px; background : orange; }
        .apu-encab-login { top : 4px; right : 0; width : 64px;
@@ -10,7 +10,19 @@
        .apu-encab-busqueda { top : 4px; right : 64px; width : 248px;
                              height : 32px; background : blue; }
        .apu-cuerpo { top : 40px; left : 0; bottom : 40px;
-                     right : 0; }
+                     right : 0; 
+                     background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;}
        .apu-cuerpo-contenido,
        .apu-cuerpo-nav { top : 0; bottom : 0; }
        .apu-cuerpo-nav { width : 250px; background : #eee; }
@@ -18,9 +30,53 @@
        .apu-cuerpo-contenido { left : 250px; right : 0;
                                background : #ddd; }
        .apu-x-cerrado .apu-cuerpo-contenido { left : 0; }
-       .apu-pie { bottom : 0; left : 0; right : 0; height : 40px; }
+       .apu-pie { bottom : 0; left : 0; right : 0; height : 40px; background:url(tail-top.jpg) repeat-x}
        .apu-chat { bottom : 0; right : 0; width : 300px;
                    height : 15px; background : red; z-index : 1; }
        .apu-modal { margin-top : -200px; margin-left : -200px;
                     top : 50%; left : 50%; width : 400px; height : 400px; 
                     background : #fff; border-radius : 3px; z-index : 2; }
+.button1 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+	background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	background-color:#3d94f6;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #337fed;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:65px;
+	line-height:65px;
+	width:131px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #1570cd;
+}
+.button1:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
+	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+	background-color:#1e62d0;
+}.button1:active {
+	position:relative;
+	top:1px;
+}

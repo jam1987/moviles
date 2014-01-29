@@ -12,17 +12,26 @@ var apu = (function() {
         $container.html(
              
              '<div class="apu-encab">'
-               + '<div class="apu-encab-logo"></div>'
-               + '<div class="apu-encab-login"></div>'
-               + '<div class="apu-encab-busqueda"></div>'
            + '</div>'
            + '<div class="apu-cuerpo">'
-               + '<div class="apu-cuerpo-nav"></div>'
-               + '<div class="apu-cuerpo-contenido"><p id="geolocation">Finding geolocation...</p></div>'
+           + '</br>'
+           + '</br>'
+             + '<H1> BIENVENIDO A  MyGPS </H1>'
+             + '</br>'
+             + '</br>'
+             + '<button class="button1" onclick="alert();return false;">'
+          + '    Iniciar Sesi&oacute;n </button>'
+             + '</br>'
+             + '</br>'
+             + '</br>'
+             + '</br>'
+             + '<button class="button1"> Registrarse  </button>'
+             + '<div> </li>'
+             + '</ul>'
            + '</div>'
            + '<div class="apu-pie"></div>'
-           + '<div class="apu-chat"> chat foo </div>'
-           + '<div class="apu-modal"></div>'
+         
+           
           
             );
             $.uriAnchor.configModule({
@@ -38,3 +47,4 @@ var apu = (function() {
      var estado = $.uriAnchor.makeAnchorMap();
     return {initModule: initModule, estado:estado};
 }());
+

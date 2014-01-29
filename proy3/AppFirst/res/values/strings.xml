@@ -11,7 +11,7 @@
     <string name="showwhite">White</string>
     <string name="showblack">Black</string>
     <string name="showalert">Alert</string>
-    <color name="background2">#000000</color>
+    <color name="background2">#330099</color>
     <color name="background">#FFFFFF</color>
 
 </resources>

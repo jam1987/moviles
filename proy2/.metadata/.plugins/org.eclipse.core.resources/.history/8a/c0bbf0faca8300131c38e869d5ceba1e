@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppFirst</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="hello_world">Lo Nano te brinda una mano!</string>
+    <string name="textareaone">Text Area 1</string>
+    <string name="textareatwo">Text Area 2</string>
+    <string name="showimage1">Foo</string>
+    <string name="showimage2">Bar</string>
+    <string name="showwhite">White</string>
+    <string name="showblack">Black</string>
+    <string name="showalert">Alert</string>
+    <color name="background2">#330066</color>
+    <color name="background">#000000</color>
+
+</resources>
