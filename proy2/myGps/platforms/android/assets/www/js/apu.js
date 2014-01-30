@@ -22,14 +22,7 @@ var apu2 = (function() {
              + '<H1> Mi Posici&oacute;n Actual </H1>'
              + '</br>'
              + '</br>'
-             + 'Latitude: '           + element.coords.latitude              + '<br />' +
-                            'Longitude: '          + element.coords.longitude             + '<br />' +
-                            'Altitude: '           + element.coords.altitude              + '<br />' +
-                            'Accuracy: '           + element.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + element.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + element.coords.heading               + '<br />' +
-                            'Speed: '              + element.coords.speed                 + '<br />' +
-                            'Timestamp: '          +                                   element.timestamp   
+             + '<p id="geolocation">Finding geolocation...</p>'
            + '</div>'
            + '<div class="apu-pie"></div>'
          
@@ -77,8 +70,8 @@ var apu1 = (function() {
              + '</br>'
              + '</br>'
              + '<button class="button1"> Ver distancias  </button>'
-             + '<div> </li>'
-             + '</ul>'
+             + '<div>'
+             
            + '</div>'
            + '<div class="apu-pie"></div>'
          
@@ -112,18 +105,37 @@ function myAlert() {
   return true;
 }
 
-function myAlert1(position) {
-
-    alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + new Date(position.timestamp)      + '\n');
-
+function myAlert1() {
+$(function() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+                apu2.initModule($('#apu'));
+                if (apu.estado._s_chat == "abierto") {
+                    deslizarChat.intercambiar();
+                }
+                
+            });
+  return true;
+	
 }
+
+function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
+}
+
+ function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+}
+
+// onSuccess Geolocation
+    //
+function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Mi Latitud es: '           + position.coords.latitude         + '<br />' +
+                            'Mi Longitud es: '          + position.coords.longitude        + '<br />' +
+                            '<button class="button1"> Ver en Mapa </button>';
+    }
 
 var apu = (function() {
      var mapaConfig = {
