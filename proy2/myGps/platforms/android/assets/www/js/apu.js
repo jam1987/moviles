@@ -43,6 +43,32 @@ function myAlert1() {
    return true;
 }
 
+function myDistance() {
+    var radio = 6371; //Radio de la tierra en Km
+    var lat1 = 33.639975;
+    var lat2 = -84.44403199999999;
+    var long1 = 33.95260200000001;
+    var long2 = -84.5499327;
+    var dlat  = ((lat2-lat1) * Math.PI)/180;
+    var dlong  = ((long2-long1)*Math.PI)/180;
+    var a = Math.sin(dlat/2) * Math.sin(dlat/2)  + 
+            Math.cos((lat1*Math.PI/180)) * Math.cos(lat2*Math.PI/180) *
+            Math.sin(dlong / 2) * Math.sin(dlong / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var valueResult = radio * c;
+    var km = valueResult * 1;
+    //var newFormat = new DecimalFormat("FFFF");
+	//alert(km);
+	var geocoder = new google.maps.Geocoder();
+	var address = new Array();
+	geocoder.geocode({'address': 'calle loma redonda, lomas del prado'},function(results,status)
+	{
+	    if (status == google.maps.GeocoderStatus.OK) {
+	        alert(results[0].geometry.location);
+	    } else {
+	    }
+	});
+}
 
 
 
@@ -118,7 +144,7 @@ var apu1 = (function() {
              + '</br>'
              + '</br>'
              + '</br>'
-             + '<button class="button1"> Ver distancias  </button>'
+             + '<button class="button1" onclick="myDistance()"> Ver distancias  </button>'
              + '<div>'
              
            + '</div>'
