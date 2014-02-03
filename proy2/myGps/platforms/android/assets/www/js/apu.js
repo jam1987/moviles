@@ -11,15 +11,43 @@ function myAlert() {
 //onSuccess Geolocation
 //
 function onSuccess(position) {
+   
+   var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
    var mapOptions = {
-      center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      center: myLatlng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
    };
    
    var map = new google.maps.Map(document.getElementById("map_canvas"),
       mapOptions);
+   
+   var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Ubicación Actual'
+   });
+   
+   var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Ubicaci&oacute;n Actual</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Coordenadas</b></p>'+
+      '<p>Latitud: '+position.coords.latitude+'</p>'+
+      '<p>Longitud: '+position.coords.longitude+'</p>'+
+      '</div>'+
+      '</div>';
+
+   var infowindow = new google.maps.InfoWindow({
+      content: contentString
+   });
+
+   google.maps.event.addListener(marker, 'mousedown', function() {
+      infowindow.open(map,marker);
+   });
+
 
 }
 
