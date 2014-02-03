@@ -1,16 +1,12 @@
 //Módulo de Cambio de Páginas
 
-function myAlert() {
-   $(function() {
-      apu1.initModule($('#apu')); 
-   });
-  return true;
-}
-
 // 
 //onSuccess Geolocation
 //
 function onSuccess(position) {
+   
+   // Habilitar recarga visual
+   google.maps.visualRefresh = true;
    
    var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -32,7 +28,7 @@ function onSuccess(position) {
    var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Ubicaci&oacute;n Actual</h1>'+
+      '<h2 id="firstHeading" class="firstHeading">Ubicaci&oacute;n Actual</h2>'+
       '<div id="bodyContent">'+
       '<p><b>Coordenadas</b></p>'+
       '<p>Latitud: '+position.coords.latitude+'</p>'+
@@ -62,6 +58,12 @@ function onDeviceReady() {
    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
+function menuPrincipal() {
+   $(function() {
+      apu1.initModule($('#apu')); 
+   });
+  return true;
+}
 
 function myAlert1() {
    $(function() {
@@ -123,7 +125,7 @@ var apu = (function() {
              + '<H1> BIENVENIDO A  MyGPS </H1>'
              + '</br>'
              + '</br>'
-             + '<button class="button1" onclick="myAlert()">'
+             + '<button class="button1" onclick="menuPrincipal()">'
           + '    Iniciar Sesi&oacute;n </button>'
              + '</br>'
              + '</br>'
@@ -203,16 +205,20 @@ var apu2 = (function() {
         $container.html(
              
              '<div class="apu-encab">'
-           + '</div>'
-           + '<div class="apu-cuerpo">'
-           + '</br>'
-           + '</br>'
-             + '<H1> Mi Posici&oacute;n Actual </H1>'
-             + '</br>'
-             + '</br>'
-             + '<div id="map_canvas" style="width: 100%; height: 100%"></div>'
-           + '</div>'
-           + '<div class="apu-pie"></div>'
+            + '</div>'
+            + '<div class="apu-cuerpo">'
+            + '</br>'
+            + '</br>'
+            + '<H1> Mi Posici&oacute;n Actual </H1>'
+            + '</br>'
+            + '</br>'
+            + '<div id="map_canvas" style="width: 100%; height: 100%"></div>'
+            + '</div>'
+            + '<div class="apu-pie">'
+            +     '<button class="backButton" onclick="menuPrincipal()">'
+            +        'Atr&aacute;s' 
+            +     '</button>'
+            +'</div>'
          
             );
         
